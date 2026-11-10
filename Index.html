@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweep AI — Enterprise Data Intelligence</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-lime: #a3ff00;
+            --muted-gray: #707070;
+            --border-color: #000000;
+            --card-bg: #f7f9fa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 3rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: #000000;
+        }
+
+        .logo span {
+            background-color: var(--accent-lime);
+            padding: 0.1rem 0.4rem;
+            border: 2px solid var(--border-color);
+        }
+
+        nav a, .btn {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--border-color);
+            background-color: var(--bg-color);
+            box-shadow: 3px 3px 0px #000000;
+            transition: all 0.15s ease;
+        }
+
+        nav a:hover, .btn:hover {
+            background-color: var(--accent-lime);
+            transform: translate(-2px, -2px);
+            box-shadow: 5px 5px 0px #000000;
+        }
+
+        nav a:active, .btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 2px 2px 0px #000000;
+        }
+
+        .hero {
+            padding: 5rem 0;
+        }
+
+        .project-tag {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: var(--muted-gray);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: #000000;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 900;
+        }
+
+        h1 em {
+            font-style: italic;
+            font-weight: 400;
+            background-color: var(--accent-lime);
+            padding: 0 0.3rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            color: #111111;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border: 2px solid var(--border-color);
+            box-shadow: 4px 4px 0px #000000;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+        }
+
+        .card-num {
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            color: var(--muted-gray);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            color: #000000;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .roadmap-list {
+            margin-bottom: 5rem;
+        }
+
+        .roadmap-item {
+            display: grid;
+            grid-template-columns: 80px 1fr 150px;
+            padding: 2rem 0;
+            border-bottom: 2px solid var(--border-color);
+            align-items: center;
+        }
+
+        .roadmap-num {
+            font-size: 1.2rem;
+            font-weight: 900;
+            background-color: var(--accent-lime);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--border-color);
+        }
+
+        .roadmap-main h3 {
+            color: #000000;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .roadmap-main p {
+            font-size: 0.95rem;
+            color: var(--muted-gray);
+        }
+
+        .roadmap-date {
+            text-align: right;
+            font-size: 1rem;
+            font-weight: 900;
+            color: #000000;
+            text-transform: uppercase;
+        }
+
+        .about-section {
+            padding: 3rem 2rem;
+            background-color: var(--accent-lime);
+            border: 2px solid var(--border-color);
+            box-shadow: 6px 6px 0px #000000;
+            margin-bottom: 5rem;
+        }
+
+        .about-section h2 {
+            color: #000000;
+            font-size: 1.75rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .about-section p {
+            color: #000000;
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--muted-gray);
+            padding-top: 3rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .roadmap-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .roadmap-date { text-align: left; margin-top: 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo">S <span>SWEEP AI</span></div>
+            <nav>
+                <a href="#cta">Sign Up ↗</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="project-tag">An independent student project</div>
+            <h1>Helping big data make more <em>sense.</em></h1>
+            <p>Sweep AI is an integrated platform built to safely orchestrate, analyze, and guard your private data environments.</p>
+            <a href="#roadmap" class="btn">See the roadmap ↓</a>
+        </section>
+
+        <div class="section-title">01 / The Architecture</div>
+        <section class="grid">
+            <div class="card">
+                <div class="card-num">01 / PLATFORM</div>
+                <h3>Sweep SaaS</h3>
+                <p>The centralized control center to manage workflows, explore intuitive visual dashboards, and access automated data summaries.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">02 / CORE</div>
+                <h3>Sweep Agent</h3>
+                <p>The operational layer that connects securely to your messy databases, discovers complex patterns, and writes clear reports.</p>
+            </div>
+            <div class="card">
+                <div class="card-num">03 / SECURITY</div>
+                <h3>Sweep Shield</h3>
+                <p>The comprehensive trust engine that redacts sensitive PII, guarantees compliance guardrails, and blocks data leaks.</p>
+            </div>
+        </section>
+
+        <div class="section-title" id="roadmap">02 / Ecosystem Roadmap</div>
+        <section class="roadmap-list">
+            <div class="roadmap-item">
+                <div class="roadmap-num">01</div>
+                <div class="roadmap-main">
+                    <h3>Launch Sweep SaaS</h3>
+                    <p>The foundational cloud dashboard for account registration, interface setup, and report storage layouts.</p>
+                </div>
+                <div class="roadmap-date">May 2027</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-num">02</div>
+                <div class="roadmap-main">
+                    <h3>Deploy Sweep Agent</h3>
+                    <p>Integrating autonomous data pattern reasoning capabilities and script execution straight into the platform environment.</p>
+                </div>
+                <div class="roadmap-date">August 2027</div>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-num">03</div>
+                <div class="roadmap-main">
+                    <h3>Release Sweep Shield</h3>
+                    <p>The rollout of enterprise-grade security filters, local PII obfuscation engines, and API data-flow guardrails.</p>
+                </div>
+                <div class="roadmap-date">November 2027</div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <h2>I'm a Year 7 student building toward something useful.</h2>
+            <p>Sweep is an independent learning project and educational prototype. The release dates and technical capabilities shown here represent long-term architectural design targets for the future, not currently available products.</p>
+        </section>
+
+        <footer id="cta">
+            <p>© 2026 Sweep AI · An educational prototype. Demo details persist inside your browser cache only.</p>
+        </footer>
+    </div>
+
+</body>
+  </html>
+  
